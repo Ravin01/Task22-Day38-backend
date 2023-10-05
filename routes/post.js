@@ -20,7 +20,7 @@ postRouter.post('/', async(req,res)=>{
     const data = req.body
     console.log(data)
     try{
-        const post = new postModel({...data, postId : v4})
+        const post = new postModel({...data, postId : v4()})
         const newPost = await post.save()
         if(newPost){
             res.send('New post added successfully')
