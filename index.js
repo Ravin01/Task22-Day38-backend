@@ -12,19 +12,11 @@ await connectToDb()
 
 
 
-
-
-app.get('/', (req,res)=>{
-    res.send('Working')
-})
-
-
-
 // middleware
 
 app.use(Express.json()) //for getting data from postman
 
-app.use('/post', postRouter)
+app.use('/', postRouter)
 
 
 

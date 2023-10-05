@@ -4,8 +4,15 @@ import { postModel } from "../db/models.js";
 export const postRouter = Express.Router()
 
 
-postRouter.get('/', (req,res)=>{
-    res.send('post data')
+postRouter.get('/', async(req,res)=>{
+    try{
+        const data = await postModel.find({})
+    if(data){
+        res.send(data)
+    }
+    }catch(err){
+        res.status(500).send(err)
+    }
 })
 
 postRouter.post('/', async(req,res)=>{
